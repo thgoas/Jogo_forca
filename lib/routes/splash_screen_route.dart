@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:forca/drawer/drawer_route.dart';
 import 'package:forca/routes/home_route.dart';
 import 'package:forca/routes/welcome_route.dart';
 import 'package:forca/shared_preferences/app_preferences.dart';
@@ -29,7 +30,7 @@ class _SplashScreenRouteState extends State<SplashScreenRoute> {
   _whereToNavigate({required bool welcomeRead}) {
     if (welcomeRead) {
       Navigator.push(
-          context, MaterialPageRoute(builder: (context) => const HomeRoute()));
+          context, MaterialPageRoute(builder: (context) => const DrawerRoute()));
     } else {
       Navigator.push(context,
           MaterialPageRoute(builder: (context) => const WelcomeRoute()));
