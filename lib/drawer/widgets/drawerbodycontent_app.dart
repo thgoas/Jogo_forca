@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:forca/widgets/listtile_app_widget.dart';
 
 class DrawerBodyContentApp extends StatelessWidget {
   const DrawerBodyContentApp({super.key});
@@ -9,14 +10,14 @@ class DrawerBodyContentApp extends StatelessWidget {
 
     return ListView(
       children:   [
-        ListTileTheme(
-          contentPadding: const EdgeInsets.only(left: 6.0),
+        const ListTileTheme(
+          contentPadding: EdgeInsets.only(left: 6.0),
           child: ExpansionTile(
-            leading: const CircleAvatar(
+            leading: CircleAvatar(
               backgroundImage: AssetImage('assets/images/drawer/base_de_palavras.png'),
 
             ),
-            title: const Text(
+            title: Text(
               'Base de Palavras',
               style: TextStyle(
                 color: Colors.black,
@@ -25,15 +26,15 @@ class DrawerBodyContentApp extends StatelessWidget {
             ),
             onExpansionChanged: null,
             children: [
-              _createListTile(
-                contentPadding: const EdgeInsets.only(left: 62.0),
+              ListTileAppWidget(
+                contentPadding: EdgeInsets.only(left: 62.0),
 
                 titleText: 'Novas Palavras',
                 subtitleText: 'Vamos inserir palavras?',
 
               ),
-              _createListTile(
-                contentPadding: const EdgeInsets.only(left: 62.0),
+              ListTileAppWidget(
+                contentPadding: EdgeInsets.only(left: 62.0),
 
                 titleText: 'Palavras existentes',
                 subtitleText: 'Vamos ver as que já temos?',
