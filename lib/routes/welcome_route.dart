@@ -65,7 +65,7 @@ class _WelcomeRouteState extends State<WelcomeRoute> {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => const DrawerRoute()));
+                              builder: (context) =>  DrawerRoute()));
                     },
                     child: const Text(
                       'Começar',

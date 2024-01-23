@@ -30,7 +30,7 @@ class _SplashScreenRouteState extends State<SplashScreenRoute> {
   _whereToNavigate({required bool welcomeRead}) {
     if (welcomeRead) {
       Navigator.push(
-          context, MaterialPageRoute(builder: (context) => const DrawerRoute()));
+          context, MaterialPageRoute(builder: (context) =>  DrawerRoute()));
     } else {
       Navigator.push(context,
           MaterialPageRoute(builder: (context) => const WelcomeRoute()));
