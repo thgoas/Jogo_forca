@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:forca/app_constants/router_constatnts.dart';
 import 'package:forca/widgets/listtile_app_widget.dart';
 
 class DrawerBodyContentApp extends StatelessWidget {
@@ -10,14 +11,14 @@ class DrawerBodyContentApp extends StatelessWidget {
 
     return ListView(
       children:   [
-        const ListTileTheme(
-          contentPadding: EdgeInsets.only(left: 6.0),
+         ListTileTheme(
+          contentPadding: const EdgeInsets.only(left: 6.0),
           child: ExpansionTile(
-            leading: CircleAvatar(
+            leading:const CircleAvatar(
               backgroundImage: AssetImage('assets/images/drawer/base_de_palavras.png'),
 
             ),
-            title: Text(
+            title: const Text(
               'Base de Palavras',
               style: TextStyle(
                 color: Colors.black,
@@ -31,6 +32,10 @@ class DrawerBodyContentApp extends StatelessWidget {
 
                 titleText: 'Novas Palavras',
                 subtitleText: 'Vamos inserir palavras?',
+                onTap: () {
+                  Navigator.of(context).pop();
+                  Navigator.of(context).pushNamed(kPalavrasCRUDRoute);
+                }
 
               ),
               ListTileAppWidget(
@@ -38,7 +43,7 @@ class DrawerBodyContentApp extends StatelessWidget {
 
                 titleText: 'Palavras existentes',
                 subtitleText: 'Vamos ver as que já temos?',
-
+                onTap: () {},
               ),
 
             ],
@@ -46,7 +51,7 @@ class DrawerBodyContentApp extends StatelessWidget {
         ),
         _createListTile(
           contentPadding: const EdgeInsets.only(left: 6.0),
-          avatarImage:  AssetImage('assets/images/drawer/jogar.png'),
+          avatarImage: const  AssetImage('assets/images/drawer/jogar.png'),
 
 
           titleText: 'Jogar',
@@ -55,7 +60,7 @@ class DrawerBodyContentApp extends StatelessWidget {
         ),
         _createListTile(
           contentPadding: const EdgeInsets.only(left: 6.0),
-          avatarImage:  AssetImage('assets/images/drawer/top10.png'),
+          avatarImage: const  AssetImage('assets/images/drawer/top10.png'),
 
 
           titleText: 'Score',

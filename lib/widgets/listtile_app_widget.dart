@@ -5,12 +5,14 @@ class ListTileAppWidget extends StatelessWidget {
   final ImageProvider? avatarImage;
   final String titleText;
   final String subtitleText;
+  final Function()? onTap;
 
   const ListTileAppWidget({super.key,
   this.contentPadding = const EdgeInsets.only(left: 54.0, top: 0.0, bottom: 8.0),
     this.avatarImage,
     required this.titleText,
     required this.subtitleText,
+    required this.onTap,
   });
 
   @override
@@ -48,11 +50,11 @@ class ListTileAppWidget extends StatelessWidget {
             ),
           ),
           GestureDetector(
+            onTap: onTap,
             child: const Icon(
               Icons.arrow_forward,
               color: Colors.black38,
             ),
-            onTap: () {},
           )
         ],
       ),

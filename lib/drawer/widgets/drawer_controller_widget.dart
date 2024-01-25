@@ -17,8 +17,10 @@ class DrawerControllerWidget extends StatelessWidget {
 
   bool _isDrawerOpened = false;
 
+
+
   void _drawerCallback(bool status) {
-    if(_isDrawerOpened && status) {
+    if(_isDrawerOpened ) {
       status = false;
       _closeDrawer();
     }
