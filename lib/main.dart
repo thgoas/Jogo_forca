@@ -26,8 +26,9 @@ class ForcaApp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           title: 'Forca',
           theme: ThemeData(
-              colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.green)
-                  .copyWith(background: Colors.green)),
+              colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.blue)
+                  .copyWith(background: Colors.green)
+              ),
           home: const ForcaHomePage(),
         ));
   }

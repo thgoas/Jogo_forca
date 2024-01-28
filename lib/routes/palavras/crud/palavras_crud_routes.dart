@@ -3,7 +3,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:forca/model/palavra_model.dart';
 import 'package:forca/routes/palavras/crud/bloc/palavra_crud_bloc.dart';
 import 'package:forca/widgets/container_iluminado_widget.dart';
+import 'package:forca/widgets/dialogs/actions_textbutton_to_alertdialog_widget.dart';
+import 'package:forca/widgets/dialogs/information_alert_dialog_widget.dart';
 import 'package:forca/widgets/dialogs/success_dialog_widget.dart';
+import 'package:forca/widgets/textbutton_with_snackbar_widget.dart';
 import 'package:forca/widgets/textformfield_forca.dart';
 
 class PalavrasCrudRoute extends StatefulWidget {
@@ -51,6 +54,7 @@ class _PalavrasCrudRouteState extends State<PalavrasCrudRoute> {
   }
 
   void _onSubmitPressed() {
+
     context.read<PalavraBloc>().add(SubmitForm());
   }
 
@@ -90,10 +94,40 @@ class _PalavrasCrudRouteState extends State<PalavrasCrudRoute> {
             onFieldSubmitted: (value) {},
           ),
           const SizedBox(height: 20,),
-          TextButton(onPressed: _palavraModel.isValid ? _onSubmitPressed : null, child: const Text('Gravar'))
+          TextButtonWithSnackBarWidget(
+              onPressedVisible: _palavraModel.isValid,
+              onButtonPressed: _onSubmitPressed,
+              buttonText: 'Gravar',
+              textToSnackBar: 'Os dados informados foram registrados com sucesso.',
+              onSnackBarClosed: _resetForm,
+          )
         ],
       ),
     );
+  }
+
+  _successDialog() async {
+    await showDialog(
+      barrierDismissible: false,
+      context: context,
+      builder: (BuildContext context) {
+        return const InformationAlertDialogWidget(
+          title: 'Tudo certo',
+          message: 'Os dados informados foram registrados com sucesso.',
+          actions: [
+            ActionsTextButtonToAlertDialogWidget(
+              messageButton: 'OK',
+              isDefaultAction: true,
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+  _resetForm() {
+    _palavraController.clear();
+    _ajudaController.clear();
   }
 
   Widget _mainColumn() {
